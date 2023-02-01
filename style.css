@@ -61,9 +61,10 @@
 }
 
 .text h3 {
-    font-size: 2em;
+    font-size: 1.5em;
     font-weight: 700;
     line-height: 1em;
+    word-spacing: 20px;
     text-transform: uppercase;
 }
 
