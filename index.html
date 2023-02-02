@@ -8,6 +8,14 @@
     <title>Bivy Labs</title>
 </head>
 <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script type="text/javascript">var submitted=false;</script>
+    <script type="text/javascript">
+        $('#gform').on('submit', function(e) {
+            $('#gform *').fadeOut(2000);
+            $('#gform').prepend('Your submission has been processed...');
+            });
+    </script>
     <section class="showcase">
         <header>
             <!-- <h2 class="logo">Bivy Labs</h2> -->
@@ -22,7 +30,20 @@
             <h3>Connect. Perceive. Learn.</h3>
             <p>We are a team of engineers focused on the development and integration of advanced technologies. We specialize in the intersection of software, electrical and mechanical design. Partner with us at any point between idea and product launch to both accelerate and derisk your development effort.</p>
             <a href="mailto:info@bivylabs.com">Contact Us</a>
+
+            <form name="gform" id="gform" enctype="text/plain" action="https://docs.google.com/forms/d/e/1FAIpQLSfAufGZu7ZqEq5FD27M0TU5YOrswo6mB1FQBSs09wAiE2Leng/formResponse" target="hidden_iframe" onsubmit="submitted=true;">
+                Your Name:<br>
+                <input type="text" name=entry.1628683102" id="entry.1628683102" required><br>
+                Your Email:<br>
+                <input type="text" name="entry.828435293" id="entry.828435293" required><br>
+                Inquiry:<br>
+                <textarea rows="5" name="entry.630628912" id="entry.630628912" required></textarea><br>
+                <input type="submit" value="Submit">
+            </form>
         </div>
-    </section>
+
+          
+        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {}"></iframe>
+</section>
 </body>
 </html>
