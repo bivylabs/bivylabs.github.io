@@ -16,6 +16,24 @@
             $('#gform').prepend('Your submission has been processed...');
             });
     </script>
+    <script>
+      function openForm() {
+        document.getElementById("popupForm").style.display = "block";
+      }
+      function closeForm() {
+        document.getElementById("popupForm").style.display = "none";
+      }
+      function submitForm() {
+        var frm = document.getElementsByName("gform")[0];
+        frm.submit(); // Submit the form
+        frm.reset();  // Reset all form data
+        closeForm();
+        var button = document.getElementById("openButt");
+        button.value = "Thanks!"
+        button.disabled = true;
+        button.className = "btndone";
+      }
+    </script>
     <section class="showcase">
         <header>
             <!-- <h2 class="logo">Bivy Labs</h2> -->
@@ -29,21 +47,23 @@
             <h2>Bivy Labs</h2>
             <h3>Connect. Perceive. Learn.</h3>
             <p>We are a team of engineers focused on the development and integration of advanced technologies. We specialize in the intersection of software, electrical and mechanical design. Partner with us at any point between idea and product launch to both accelerate and derisk your development effort.</p>
-            <a href="mailto:info@bivylabs.com">Contact Us</a>
+          <input type="button" value="Contact Us" id="openButt" class="btncontact" onclick="openForm()">
+        </div>
 
-            <form name="gform" id="gform" enctype="text/plain" action="https://docs.google.com/forms/d/e/1FAIpQLSfAufGZu7ZqEq5FD27M0TU5YOrswo6mB1FQBSs09wAiE2Leng/formResponse" target="hidden_iframe" onsubmit="submitted=true;">
-                Your Name:<br>
-                <input type="text" name=entry.1628683102" id="entry.1628683102" required><br>
-                Your Email:<br>
-                <input type="text" name="entry.828435293" id="entry.828435293" required><br>
-                Inquiry:<br>
-                <textarea rows="5" name="entry.630628912" id="entry.630628912" required></textarea><br>
-                <input type="submit" value="Submit">
+        <div class="form-popup" id="popupForm">
+            <form name="gform" id="gform" enctype="text/plain" action="https://docs.google.com/forms/d/e/1FAIpQLSfAufGZu7ZqEq5FD27M0TU5YOrswo6mB1FQBSs09wAiE2Leng/formResponse" target="hidden_iframe" onsubmit="submitted=true;" class="form-container">
+              <label for="entry.1628683102">Your Name:</label>
+              <input type="text" name="entry.1628683102" id="entry.1628683102" required><br>
+              <label for="entry.828435293">Your Email:</label>
+              <input type="text" name="entry.828435293" id="entry.828435293" required><br>
+              <label for="entry.630628912">Inquiry:</label>
+              <textarea rows="5" name="entry.630628912" id="entry.630628912" required></textarea><br>
+              <input type="button" value="Submit" class="btnsubmit" onclick="submitForm()">
             </form>
         </div>
 
-          
-        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {}"></iframe>
+        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {}">
+        </iframe>
 </section>
 </body>
 </html>
