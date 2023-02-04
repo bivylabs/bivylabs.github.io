@@ -75,23 +75,6 @@
     max-width: 700px;
 }
 
-.text a {
-    display: inline-block;
-    font-size: 1em;
-    background: #fff;
-    padding: 10px 30px;
-    text-decoration: none;
-    color: #111;
-    margin-top: 10px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    transition: 0.2s;
-}
-
-.text a:hover {
-    letter-spacing: 6px;
-}
-
 .overlay {
     position: absolute;
     top: 0;
@@ -100,4 +83,87 @@
     height: 100%;
     /* background: rgb(141, 36, 36); */
     mix-blend-mode: overlay;
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  min-height: 500px;
+  color: #111;
+  bottom: 10px;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 50;
+  border-radius: 3px;
+  background-color: white;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container textarea, .form-container input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+  font-size: 0.9em;
+}
+
+.form-container textarea {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+    font-size: 0.9em;
+}
+
+/* When the inputs get focus, do something */
+.form-container textarea:focus, .form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the contact/submit buttons */
+input[type=button] {
+    color: #111;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    opacity: 0.8;
+    font-size: 1em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 3px;
+    position: fixed;
+    bottom: 23px;
+    right: 28px;
+    width: 280px;
+    background: #fff;
+}
+
+[type='button'].btnsubmit {
+    background-color: #521200;
+    opacity: 0.85;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+/* The following are broken out so that after form submit, button won't change */
+[type='button'].btnsubmit:hover {
+    letter-spacing: 6px;
+    opacity: 1;
+}
+
+[type='button'].btncontact:hover {
+    letter-spacing: 6px;
+    opacity: 1;
 }
