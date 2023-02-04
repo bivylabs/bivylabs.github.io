@@ -9,30 +9,38 @@
 </head>
 <body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script type="text/javascript">var submitted=false;</script>
     <script type="text/javascript">
-        $('#gform').on('submit', function(e) {
-            $('#gform *').fadeOut(2000);
-            $('#gform').prepend('Your submission has been processed...');
-            });
+        var submitted=false;
+        
+        if ( window.history.replaceState ) {
+            window.history.replaceState( null, null, window.location.href );
+        }
     </script>
     <script>
       function openForm() {
         document.getElementById("popupForm").style.display = "block";
+        document.getElementById("openButt").disabled = true;
       }
       function closeForm() {
         document.getElementById("popupForm").style.display = "none";
       }
       function submitForm() {
+        window.onbeforeunload = function() {
+          if (!submitted) {
+              return false;
+          }
+        };
+
         var frm = document.getElementsByName("gform")[0];
         frm.submit(); // Submit the form
+        submitted=true;
         frm.reset();  // Reset all form data
         closeForm();
         var button = document.getElementById("openButt");
         button.value = "Thanks!"
-        button.disabled = true;
         button.className = "btndone";
-      }
+        return false;
+    }
     </script>
     <section class="showcase">
         <header>
@@ -51,7 +59,7 @@
         </div>
 
         <div class="form-popup" id="popupForm">
-            <form name="gform" id="gform" enctype="text/plain" action="https://docs.google.com/forms/d/e/1FAIpQLSfAufGZu7ZqEq5FD27M0TU5YOrswo6mB1FQBSs09wAiE2Leng/formResponse" target="hidden_iframe" onsubmit="submitted=true;" class="form-container">
+            <form name="gform" id="gform" enctype="text/plain" action="https://docs.google.com/forms/d/e/1FAIpQLSfAufGZu7ZqEq5FD27M0TU5YOrswo6mB1FQBSs09wAiE2Leng/formResponse" target="hidden_iframe" class="form-container">
               <label for="entry.1628683102">Your Name:</label>
               <input type="text" name="entry.1628683102" id="entry.1628683102" required><br>
               <label for="entry.828435293">Your Email:</label>
