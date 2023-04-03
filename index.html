@@ -37,6 +37,7 @@
           }
         };
 
+        /*
         var name = document.forms["gform"]["entry.1628683102"].value;
         if (name == "") {
             alert("Name required");
@@ -69,6 +70,7 @@
         button.value = "Thanks!"
         button.className = "btndone";
         return false;
+        */
     }
     </script>
     <section class="showcase">
@@ -84,19 +86,9 @@
             <h2>Bivy Labs</h2>
             <h3>Connect. Perceive. Learn.</h3>
             <p>We are a team of engineers focused on the development and integration of advanced technologies. We specialize in the intersection of software, electrical and mechanical design. Partner with us at any point between idea and product launch to both accelerate and derisk your development effort.</p>
-          <input type="button" value="Contact Us" id="openButt" class="btncontact" onclick="openForm()">
-        </div>
+            <img src="info.png" style="height:27px;">
+            <!-- <input type="button" value="Contact Us" id="openButt" class="btncontact" onclick="openForm()"> -->
 
-        <div class="form-popup" id="popupForm">
-            <form name="gform" id="gform" enctype="text/plain" action="https://docs.google.com/forms/d/e/1FAIpQLSfAufGZu7ZqEq5FD27M0TU5YOrswo6mB1FQBSs09wAiE2Leng/formResponse" target="hidden_iframe" class="form-container">
-              <label for="entry.1628683102">Your Name:</label>
-              <input type="text" name="entry.1628683102" id="entry.1628683102" required><br>
-              <label for="entry.828435293">Your Email:</label>
-              <input type="text" name="entry.828435293" id="entry.828435293" required><br>
-              <label for="entry.630628912">Inquiry:</label>
-              <textarea rows="5" name="entry.630628912" id="entry.630628912" required></textarea><br>
-              <input type="button" value="Submit" class="btnsubmit" onclick="submitForm()">
-            </form>
         </div>
 
         <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {}">
